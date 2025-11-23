@@ -62,7 +62,8 @@ export default function Sites() {
             });
 
             const script = response.data;
-            const scriptTag = `<script src="http://localhost:8000/api/heatmaps/tracking-script/${siteId}/"></script>`;
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+            const scriptTag = `<script src="${apiUrl}/heatmaps/tracking-script/${siteId}/"></script>`;
 
             alert(`Add this to your website's <head> section:\n\n${scriptTag}\n\nOr use inline:\n\n<script>\n${script}\n</script>`);
         } catch (error) {
