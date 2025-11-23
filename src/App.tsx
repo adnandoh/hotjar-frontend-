@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
+import ProtectedRoute from './components/ProtectedRoute'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -16,19 +17,22 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/heatmaps" element={<Heatmaps />} />
-        <Route path="/heatmaps/viewer" element={<HeatmapViewer />} />
-        <Route path="/recordings" element={<Recordings />} />
-        <Route path="/recordings/:id" element={<RecordingPlayer />} />
-        <Route path="/sites" element={<Sites />} />
-        <Route path="/funnels" element={<Funnels />} />
-        <Route path="/funnels/:id/analytics" element={<FunnelAnalytics />} />
-        <Route path="/forms" element={<Forms />} />
-        <Route path="/surveys" element={<Surveys />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/heatmaps" element={<Heatmaps />} />
+          <Route path="/heatmaps/viewer" element={<HeatmapViewer />} />
+          <Route path="/recordings" element={<Recordings />} />
+          <Route path="/recordings/:id" element={<RecordingPlayer />} />
+          <Route path="/sites" element={<Sites />} />
+          <Route path="/funnels" element={<Funnels />} />
+          <Route path="/funnels/:id/analytics" element={<FunnelAnalytics />} />
+          <Route path="/forms" element={<Forms />} />
+          <Route path="/surveys" element={<Surveys />} />
+        </Route>
       </Routes>
     </div>
   )
