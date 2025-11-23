@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import Sidebar from '../components/Sidebar'
 import Header from '../components/Header'
 import api from '../api/axios'
-import { Users, Play, MousePointerClick, Clock, TrendingUp, AlertCircle } from 'lucide-react'
-import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { Users, Play, Clock, TrendingUp, AlertCircle } from 'lucide-react'
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
 interface DashboardStats {
     total_sessions: number
@@ -41,8 +41,6 @@ export default function Dashboard() {
         const secs = seconds % 60
         return `${mins}m ${secs}s`
     }
-
-    const COLORS = ['#6366f1', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981']
 
     return (
         <div className="flex h-screen bg-gray-50">

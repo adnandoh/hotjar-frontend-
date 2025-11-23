@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import Header from '../components/Header'
 import api from '../api/axios'
-import { ArrowLeft, Play, Pause, SkipBack, SkipForward, AlertCircle, MousePointerClick } from 'lucide-react'
+import { ArrowLeft, Play, AlertCircle, MousePointerClick } from 'lucide-react'
 import rrwebPlayer from 'rrweb-player'
 import 'rrweb-player/dist/style.css'
 
